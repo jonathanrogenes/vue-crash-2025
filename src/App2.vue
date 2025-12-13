@@ -1,5 +1,25 @@
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      name: 'Jon Doe',
+      status: 'pending',
+      tasks: ['task one', 'task two', 'task three'],
+      link: 'https:/google.com',
+    }
+  },
+  methods: {
+    toggleStatus() {
+      if (this.status === 'active') {
+        this.status = 'pending'
+      } else if (this.status === 'pending') {
+        this.status = 'inactive'
+      } else {
+        this.status = 'active'
+      }
+    },
+  },
+}
 </script>
 
 <template>
