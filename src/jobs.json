@@ -83,34 +83,6 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
-    },
-    {
-      "id": "9a9a",
-      "title": "fake job",
-      "type": "Full-Time",
-      "location": "tokyo",
-      "description": "great",
-      "salary": "Over $200K",
-      "company": {
-        "name": "Fake co",
-        "description": "",
-        "contactEmail": "",
-        "contactPhone": "asgd"
-      }
-    },
-    {
-      "id": "7b2f",
-      "title": "awesome",
-      "type": "Full-Time",
-      "location": "tokyo",
-      "description": "dsagrdsrrt",
-      "salary": "$175K - $200K",
-      "company": {
-        "name": "awesome co",
-        "description": "",
-        "contactEmail": "",
-        "contactPhone": "asgd"
-      }
     }
   ]
 }
