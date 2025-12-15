@@ -1,5 +1,6 @@
 <script setup>
 import { reactive } from 'vue'
+import axios from 'axios'
 
 const form = reactive({
   type: 'Full-Time',
@@ -14,13 +15,36 @@ const form = reactive({
     contactPhone: '',
   },
 })
+const handleSubmit = async () => {
+  const newJob = {
+    title: form.title,
+    type: form.type,
+    location: form.location,
+    description: form.description,
+    salary: form.salary,
+    company: {
+      name: form.company.name,
+      description: form.company.description,
+      contactEmail: form.company.contactEmail,
+      contactPhone: form.company.contactPhone,
+    },
+  }
+
+  try {
+    const response = await axios.post(`/api/jobs`, newJob)
+    //  @todo - show toast
+    router.push(`/jobs/${response.data.id}`)
+  } catch (error) {
+    console.error('Error fetching job', error)
+  }
+}
 </script>
 
 <template>
   <section class="bg-green-50">
     <div class="container m-auto max-w-2xl py-24">
       <div class="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
-        <form>
+        <form @submit.prevent="handleSubmit">
           <h2 class="text-3xl text-center font-semibold mb-6">Add Job</h2>
 
           <div class="mb-4">
@@ -42,7 +66,7 @@ const form = reactive({
           <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2">Job Listing Name</label>
             <input
-              v-model="form.name"
+              v-model="form.title"
               type="text"
               id="name"
               name="name"
