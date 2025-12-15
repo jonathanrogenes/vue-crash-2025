@@ -18,7 +18,7 @@ const loading = ref(true)
 
 onMounted(async () => {
   try {
-    const response = await axios.get('http://localhost:8000/jobs')
+    const response = await axios.get('/api/jobs')
     // artificial delay so you can see spinner
     await new Promise((resolve) => setTimeout(resolve, 1000))
     jobs.value = response.data
