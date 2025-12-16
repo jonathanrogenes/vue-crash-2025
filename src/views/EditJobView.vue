@@ -31,7 +31,7 @@ const state = reactive({
 const toast = useToast()
 
 const handleSubmit = async () => {
-  const newJob = {
+  const updatedJob = {
     title: form.title,
     type: form.type,
     location: form.location,
@@ -46,13 +46,13 @@ const handleSubmit = async () => {
   }
 
   try {
-    const response = await axios.post(`/api/jobs`, newJob)
+    const response = await axios.put(`/api/jobs/${jobID}`, updatedJob)
     //  @todo - show toast
-    toast.success('Job Added Successfully')
+    toast.success('Job updated Successfully')
     router.push(`/jobs/${response.data.id}`)
   } catch (error) {
     console.error('Error fetching job', error)
-    toast.error('job was not added')
+    toast.error('job was not updated')
   }
 }
 
